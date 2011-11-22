@@ -24,6 +24,10 @@ module DataMapper
 
         super
       end
+
+      if DataMapper::Adapters.const_defined?(:YamlAdapter)
+        YamlAdapter.send(:include, YamlAdapterAdjust)
+      end
     end
 
   end # module Adapters
